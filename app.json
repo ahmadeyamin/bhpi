@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "bhpi",
+    "slug": "bhpi",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
