@@ -23,7 +23,11 @@ export default function App() {
                     name="Technology" 
                     component={TechnologyScreen} 
                     options={{
-                        headerShown: false
+                        // headerShown: false
+                        headerTitle: 'Technology',
+                        headerTransparent: true,
+                        headerTintColor: '#fff',
+                        // statusBarColor: 'transparent',
                     }}
                 />
             </Stack.Navigator>
