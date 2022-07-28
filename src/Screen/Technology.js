@@ -1,7 +1,7 @@
 import { Alert, Image, ImageBackground, Linking, SafeAreaView, ScrollView, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View } from 'react-native'
 import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import * as Progress from 'react-native-progress';
-import { s } from '../Lib/Helper';
+import { handlePress, s } from '../Lib/Helper';
 import { useHeaderHeight } from '@react-navigation/elements';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -39,18 +39,6 @@ const Technology = ({ route, navigation }) => {
         
     }, [navigation]);
 
-    const handlePress = async (url) => {
-        // Checking if the link is supported for links with custom URL scheme.
-        const supported = await Linking.canOpenURL(url);
-    
-        if (supported) {
-          // Opening the link with some app, if the URL scheme is "http" the web link should be opened
-          // by some browser in the mobile
-          await Linking.openURL(url);
-        } else {
-          Alert.alert(`Don't know how to open this URL: ${url}`);
-        }
-    };
 
 
     if (isLoading) {
