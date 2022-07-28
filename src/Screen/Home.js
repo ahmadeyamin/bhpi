@@ -32,7 +32,7 @@ const Home = ({navigation}) => {
             const response = await fetch('http://api.bhpi.gov.bd/api/technologies')
             const data = await response.json()
             // console.log(data.data[0]);
-            setTechnologies(data.data.filter(item => item.id < 5))
+            setTechnologies(data.data.sort((a, b) => a.id - b.id))
         }
 
         fetchData()
@@ -121,7 +121,7 @@ const Home = ({navigation}) => {
                                 return (
                                     <TouchableOpacity 
                                     onPress={()=>{
-                                        navigation.navigate('Technology', {
+                                        navigation.navigate('TechnologyScreen', {
                                             slug: item.slug,
                                             technology: item,
                                         })
