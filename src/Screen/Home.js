@@ -20,11 +20,55 @@ const Stack = createNativeStackNavigator()
 const Home = ({navigation}) => {
 
     const [technologies, setTechnologies] = useState([])
+    const teachers = []
     const [search, setSearch] = useState('')
     const [scrollContentHeight, setScrollContentHeight] = useState()
 
 
     const handleSearch = () => {}
+
+    const fetchAllTeachers = async () => {
+
+        // var all_urls = technologies.map((item)=> {
+        //     return fetch(`http://api.bhpi.gov.bd/api/technology/${item.slug}/teachers`)
+        // })
+
+        console.log('0--------------------------0');
+
+        Promise.all([
+            fetch(`http://api.bhpi.gov.bd/api/technology/general-section/teachers`),
+            fetch(`http://api.bhpi.gov.bd/api/technology/computer-technology/teachers`)
+        ])
+        .then((responses) => {
+        const errors = responses.filter((response) => !response.ok);
+
+        if (errors.length > 0) {
+            throw errors.map((response) => Error(response.statusText));
+        }
+
+        const json = responses.map((response) => response.json());
+            return Promise.all(json);
+        })
+        .then((data) => {
+            data.forEach((datum) => {
+                // teachers.push(datum.data.)
+                // console.log(datum.data);
+            });
+
+            console.log(teachers);
+        })
+        .catch((errors) => {
+            errors.forEach((error) => console.error(error));
+        });
+    }
+
+    // useEffect(() => {
+    //     console.log(teachers);
+
+    //     return () => {
+    //         setTeachers([])
+    //     }
+    // },[teachers])
 
     useEffect(() => {
 
@@ -75,7 +119,11 @@ const Home = ({navigation}) => {
             <View>
                 <View style={styles.search_box}>
                     <Icon name='magnify' style={styles.search_icon} color='#a5a5a5' size={35} />
-                    <TextInput placeholder='Search any topics' style={styles.search} />
+                    <TextInput 
+                        placeholder='Search any topics' 
+                        style={styles.search}
+                        onFocus={() => fetchAllTeachers()} 
+                    />
                 </View>
                 {false && (
                 <View style={styles.search_results}>
