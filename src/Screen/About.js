@@ -1,17 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View, Linking, ScrollView, Dimensions, TouchableWithoutFeedback,ToastAndroid, TouchableOpacity, Alert } from 'react-native'
+import { handleLinks } from '../Lib/Helper'
 
 
 const About = () => {
 
-    const handleLinkOpen = async (url) => {
-        const supported = await Linking.canOpenURL(url);
-        if (supported) {
-            await Linking.openURL(url);
-        } else {
-            Alert.alert(`Don't know how to open this URL: ${url}`);
-        }
-    };
 
     return (
         <ScrollView style={{height:'100%'}}>
@@ -34,15 +27,15 @@ const About = () => {
                     Developed By
                 </Text>
                 <View style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-                    <TouchableOpacity style={styles.dev_button} onPress={() => { handleLinkOpen('https://facebook.com/ahmadeyamin') }}>
+                    <TouchableOpacity style={styles.dev_button} onPress={() => { handleLinks('https://www.facebook.com/ahmadeyamin') }}>
                         <Text style={styles.dev_button_text}>Ahmad Eyamin (Developer) 🚀</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.dev_button} onPress={() => { handleLinkOpen('https://facebook.com/mdmajarulislam.mahim') }}>
+                    <TouchableOpacity style={styles.dev_button} onPress={() => { handleLinks('https://www.facebook.com/mdmajarulislam.mahim') }}>
                         <Text style={styles.dev_button_text}>MD.Shakil (Design)</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.dev_button} onPress={() => { handleLinkOpen('https://facebook.com/MuhammadMahfuz00') }}>
+                    <TouchableOpacity style={styles.dev_button} onPress={() => { handleLinks('https://www.facebook.com/MuhammadMahfuz00') }}>
                         <Text style={styles.dev_button_text}>Muhammad Mahfuz (Design)</Text>
                     </TouchableOpacity>
 

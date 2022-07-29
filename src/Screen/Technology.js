@@ -1,7 +1,7 @@
 import { Alert, Image, ImageBackground, Linking, SafeAreaView, ScrollView, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View } from 'react-native'
 import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import * as Progress from 'react-native-progress';
-import { handlePress, s } from '../Lib/Helper';
+import { handleLinks, s } from '../Lib/Helper';
 import { useHeaderHeight } from '@react-navigation/elements';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -89,7 +89,7 @@ const Technology = ({ route, navigation }) => {
                 }}>
                     <Text style={styles.header_title}>{route.params.technology.name}</Text>
                     <Text style={styles.header_students}>{route.params.technology.description} Students</Text>
-                    <TouchableOpacity onPress={()=>handlePress(`tel:${route.params.technology.phone}`)} style={styles.header_contact}>
+                    <TouchableOpacity onPress={()=>handleLinks(`tel:${route.params.technology.phone}`)} style={styles.header_contact}>
 
                         <Icon 
                             name="phone" 
@@ -101,7 +101,7 @@ const Technology = ({ route, navigation }) => {
                         </Text>
 
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => handlePress(`mailto:${route.params.technology.email}`)} style={styles.header_contact}>
+                    <TouchableOpacity onPress={() => handleLinks(`mailto:${route.params.technology.email}`)} style={styles.header_contact}>
 
                         <Icon 
                             name="email" 
@@ -146,7 +146,7 @@ const Technology = ({ route, navigation }) => {
                                                 </Text>
                                             </View>
                                             <View>
-                                                <TouchableOpacity onPress={() => handlePress(`tel:${teacher.phone}`)} style={styles.teacher_phone}>
+                                                <TouchableOpacity onPress={() => handleLinks(`tel:${teacher.phone}`)} style={styles.teacher_phone}>
 
                                                     <Icon 
                                                         name="phone" 
@@ -158,7 +158,7 @@ const Technology = ({ route, navigation }) => {
                                                     </Text>
 
                                                 </TouchableOpacity>
-                                                <TouchableOpacity onPress={() => handlePress(`mailto:${teacher.email}`)} style={styles.teacher_phone}>
+                                                <TouchableOpacity onPress={() => handleLinks(`mailto:${teacher.email}`)} style={styles.teacher_phone}>
 
                                                     <Icon 
                                                         name="email" 

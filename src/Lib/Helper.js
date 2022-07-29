@@ -18,7 +18,7 @@ export const ms = moderateScale;
 export const mvs = moderateVerticalScale;
 
 
-export const handlePress = async (url) => {
+export const handleLinks = async (url) => {
     // Checking if the link is supported for links with custom URL scheme.
     const supported = await Linking.canOpenURL(url);
 
