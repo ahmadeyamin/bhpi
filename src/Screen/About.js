@@ -34,12 +34,16 @@ const About = () => {
                     Developed By
                 </Text>
                 <View style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-                    <TouchableOpacity style={styles.dev_button} onPress={() => { handleLinkOpen('https://facebook.com/ahmadeyamin', 'Eyamin') }}>
+                    <TouchableOpacity style={styles.dev_button} onPress={() => { handleLinkOpen('https://facebook.com/ahmadeyamin') }}>
                         <Text style={styles.dev_button_text}>Ahmad Eyamin (Developer) 🚀</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.dev_button} onPress={() => { handleLinkOpen('https://facebook.com/mdmajarulislam.mahim', 'Shakil') }}>
+                    <TouchableOpacity style={styles.dev_button} onPress={() => { handleLinkOpen('https://facebook.com/mdmajarulislam.mahim') }}>
                         <Text style={styles.dev_button_text}>MD.Shakil (Design)</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.dev_button} onPress={() => { handleLinkOpen('https://facebook.com/MuhammadMahfuz00') }}>
+                        <Text style={styles.dev_button_text}>Muhammad Mahfuz (Design)</Text>
                     </TouchableOpacity>
 
                 </View>

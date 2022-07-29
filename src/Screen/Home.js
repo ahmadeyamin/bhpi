@@ -66,6 +66,10 @@ const Home = ({navigation}) => {
 
     const fetchAllTeachers = async () => {
 
+        if (teachers.length > 0) {
+            return;
+        }
+
         var all_urls = technologies.map((item)=> {
             return fetch(`http://api.bhpi.gov.bd/api/technology/${item.slug}/teachers`)
         })
@@ -155,7 +159,7 @@ const Home = ({navigation}) => {
                 </View>
                 <View>
                     <TouchableOpacity onPress={() => {
-                        console.log('pressed');
+                        navigation.navigate('Notices')
                     }}>
                         <Icon 
                             name="bell"
@@ -187,11 +191,11 @@ const Home = ({navigation}) => {
                     <Text style={styles.body_header_text_title}>
                         {enableSearch ? 'Teachers' : 'Technologies'}
                     </Text>
-                    <TouchableOpacity >
+                    <View>
                         <Text style={styles.body_header_text_subtitle}>
-                            See all
+                            All Records
                         </Text>
-                    </TouchableOpacity>
+                    </View>
                 </View>
             </View>
             <View 
@@ -243,7 +247,7 @@ const styles = StyleSheet.create({
     },
     body_header_text_subtitle:{
         fontSize: s(13),
-        color: '#7455f7',
+        color: '#999',
         marginTop: s(5),
         fontWeight: 'bold',
     },

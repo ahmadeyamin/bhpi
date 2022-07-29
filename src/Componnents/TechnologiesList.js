@@ -36,7 +36,7 @@ const TechnologiesList = ({technologies}) => {
                                     {item.name}
                                 </Text>
                                 <Text style={styles.body_content_item_text_subtitle}>
-                                    {item.description} Students
+                                    {item.description} {parseInt(item.description) ? 'Students' : ''}
                                 </Text>
                             </View>
                         </TouchableOpacity>
